@@ -1,0 +1,586 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Agar website responsif di HP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raihan | Personal Website</title>
+
+    <style>
+        .foto-saya {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            padding: 22px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(10px);
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 120px 8% 60px;
+
+            position: relative;
+        }
+
+
+        /* Efek cahaya di background */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            background: #2563eb;
+
+            border-radius: 50%;
+
+            filter: blur(150px);
+
+            opacity: 0.4;
+
+            top: 15%;
+            left: 5%;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            background: #7c3aed;
+
+            border-radius: 50%;
+
+            filter: blur(150px);
+
+            opacity: 0.3;
+
+            bottom: 10%;
+            right: 5%;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 60px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        .text-content {
+            max-width: 600px;
+        }
+
+        .hello {
+            color: #60a5fa;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+        .text-content h1 {
+            font-size: 55px;
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+        .text-content h1 span {
+            color: #60a5fa;
+        }
+
+        .job {
+            font-size: 24px;
+
+            color: #cbd5e1;
+
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 17px;
+
+            color: #94a3b8;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+
+            padding: 14px 25px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid #475569;
+            color: #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            border-color: #60a5fa;
+            color: #60a5fa;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .profile-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .profile-circle {
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #7c3aed
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow:
+                0 0 50px rgba(59, 130, 246, 0.35);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .profile-circle span {
+            font-size: 85px;
+
+            font-weight: bold;
+
+            color: white;
+        }
+
+
+        /* Animasi */
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .quick-info {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            gap: 35px;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        .quick-info strong {
+            color: #60a5fa;
+
+            display: block;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 20px;
+
+            color: #64748b;
+
+            border-top: 1px solid #1e293b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           RESPONSIVE / HP
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 120px 20px 50px;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+
+                text-align: center;
+            }
+
+            .text-content h1 {
+                font-size: 40px;
+            }
+
+            .job {
+                font-size: 20px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .quick-info {
+                justify-content: center;
+            }
+
+            .profile-circle {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile-circle span {
+                font-size: 60px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Raihan<span>.</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="profil.html">Profil</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+
+            <!-- TEXT -->
+
+            <div class="text-content">
+
+                <p class="hello">
+                    👋 Halo, selamat datang!
+                </p>
+
+                <h1>
+                    Saya <span>Muhamad Raihan Fazri</span>
+                </h1>
+
+                <p class="job">
+                    Mahasiswa Teknik Informatika
+                </p>
+
+                <p class="description">
+
+                    Saya adalah mahasiswa Teknik Informatika
+                    di Nusa Putra University yang memiliki
+                    ketertarikan terhadap dunia teknologi,
+                    pemrograman, dan hal-hal baru.
+
+                </p>
+
+
+                <!-- BUTTON -->
+
+                <div class="buttons">
+
+                    <!-- Tombol menuju halaman kedua -->
+
+                    <a
+                        href="profil.html"
+                        class="btn btn-primary"
+                    >
+                        Kenali Saya →
+                    </a>
+
+
+                    <a
+                        href="#tentang"
+                        class="btn btn-secondary"
+                    >
+                        Tentang Saya
+                    </a>
+
+                </div>
+
+
+                <!-- INFO SINGKAT -->
+
+                <div class="quick-info">
+
+                    <div>
+                        <strong>19</strong>
+                        Tahun
+                    </div>
+
+                    <div>
+                        <strong>Sukabumi</strong>
+                        Asal
+                    </div>
+
+                    <div>
+                        <strong>Memasak</strong>
+                        Hobi
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-area">
+
+                <div class="profile-circle">
+
+                    <img 
+    src="foto/raihan.jpg" 
+    alt="Foto Muhamad Raihan Fazri"
+    class="foto-saya"
+>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Muhamad Raihan Fazri
+        | Personal Website
+
+    </footer>
+
+
+</body>
+
+</html>
+```
